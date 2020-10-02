@@ -16,7 +16,8 @@ Quizc - A command quiz utility
 1. Create quiz
 2. Fill quiz
 3. Show quiz
-4. Exit
+4. Load quiz
+5. Exit
 ======================================
         """)
 
@@ -37,6 +38,11 @@ Quizc - A command quiz utility
             else:
                 QuizUIHandler.show_quiz(self.quiz_answers)
         elif option == "4":
+            if self.quiz_answers is None:
+                print("No filled quiz available, you must create first a quiz")
+            else:
+                QuizUIHandler.show_quiz(self.quiz_answers)
+        elif option == "5":
             should_exit = True
 
         return should_exit
